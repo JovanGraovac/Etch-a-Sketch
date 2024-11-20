@@ -4,20 +4,22 @@ const NUMBER_OF_SQUARES = 16;
 const container = document.querySelector('#container');
 const grid = document.querySelector('#grid');
 
-function makeRow(num) {
+function generateGrid(num) {
      
       for (let i = 0; i < num; i++) {
-            const row = document.createElement('div');
-            row.classList.add('squares');
-            grid.appendChild(row);
+            const col = document.createElement('div');
+            col.style.display = 'flex';
+
+            for (let j = 0; j < num; j++) {
+                  const row = document.createElement('div');
+                  row.classList.add('squares');
+                  col.appendChild(row);
+            }
+
+            container.appendChild(col);
       };  
 };
 
-function generateGrid(num) {
-      const col = document.createElement('div');
-      col.classList.add('column');
-      container.appendChild(makeRow(NUMBER_OF_SQUARES));
-}
 
-//makeRow(NUMBER_OF_SQUARES);
-generateGrid(16)
+
+generateGrid(NUMBER_OF_SQUARES);
